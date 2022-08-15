@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController()
 @RequestMapping("/test")
 public class ConsumerController {
-    @DubboReference
+    @DubboReference(check = false)
     OrderPayDubboService orderPayDubboService;
 
     @GetMapping("list")

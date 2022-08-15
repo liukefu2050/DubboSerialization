@@ -46,7 +46,8 @@ oauth:
   path:
     url: /api/
 
-jwt:
+
+secure:
   ignored:
     urls: #安全路径白名单
       - /
