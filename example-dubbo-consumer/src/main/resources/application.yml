@@ -65,4 +65,4 @@ jwt:
       - /authentication/**
       - /oauthLogin
       #- static
-      - /**/test/**
+      - /test/**

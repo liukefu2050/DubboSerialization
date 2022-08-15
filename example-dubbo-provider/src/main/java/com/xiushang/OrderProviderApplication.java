@@ -3,6 +3,7 @@ package com.xiushang;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -25,20 +26,15 @@ public class OrderProviderApplication extends SpringBootServletInitializer {
 
     Environment env = application.getEnvironment();
     log.info("\n----------------------------------------------------------\n\t" +
-            "Application '{}' is running! Access URLs:\n\t" +
-            "Login: \thttp://{}:{}/login\n\t" +
-            "Doc: \thttp://{}:{}/doc.html\n" +
-            "----------------------------------------------------------",
-        env.getProperty("spring.application.name"),
-        InetAddress.getLocalHost().getHostAddress(),
-        env.getProperty("server.port"),
-        InetAddress.getLocalHost().getHostAddress(),
-        env.getProperty("server.port"));
+                    "Application '{}' is running! \n" +
+                    "----------------------------------------------------------",
+            env.getProperty("spring.application.name"));
   }
 
   @Override
   protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-    return builder.sources(OrderProviderApplication.class);
+    //无端口方式启动
+    return builder.sources(OrderProviderApplication.class).web(WebApplicationType.NONE);
   }
 
 }

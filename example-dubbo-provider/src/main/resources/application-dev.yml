@@ -53,6 +53,9 @@ dubbo:
   application:
     name: app-provider
     qosEnable: false
+  scan:
+    # 接口实现者（服务实现）包
+    base-packages: com.xiushang.admin.service
   registry:
     address: nacos://121.37.171.85:8848
   protocol:
@@ -61,8 +64,8 @@ dubbo:
     # 协议端口
     port: -1
     # 序列化
-    serialization: fastjson
-    charset: GBK
+    #serialization: fastjson
+    #charset: GBK
 
 #ftp
 ftp:

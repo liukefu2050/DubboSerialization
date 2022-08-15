@@ -61,8 +61,8 @@ dubbo:
     # 协议端口
     port: -1
     # 序列化
-    serialization: fastjson
-    charset: GBK
+    #serialization: fastjson
+    #charset: GBK
 
 #ftp
 ftp:

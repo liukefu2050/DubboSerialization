@@ -14,29 +14,55 @@
     <packaging>jar</packaging>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <version>RELEASE</version>
-        </dependency>
-        <!--dubbo依赖-->
+
+        <!-- mapstruct -->
         <dependency>
             <groupId>com.github.shijingsh</groupId>
-            <artifactId>common-dubbo-nacos</artifactId>
+            <artifactId>common-mapstruct</artifactId>
             <version>${xiushang.version}</version>
         </dependency>
-        <!-- 基础服务 -->
+        <!-- core -->
+        <dependency>
+            <groupId>com.github.shijingsh</groupId>
+            <artifactId>common-core</artifactId>
+            <version>${xiushang.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
         <dependency>
             <groupId>com.github.shijingsh</groupId>
             <artifactId>xs-service</artifactId>
             <version>${xiushang.version}</version>
         </dependency>
-        <!--引入lombok-->
+
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
+            <groupId>com.github.shijingsh</groupId>
+            <artifactId>xs-oauth</artifactId>
+            <version>${xiushang.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+
+
+        <!-- dubbo -->
+        <dependency>
+            <groupId>com.github.shijingsh</groupId>
+            <artifactId>common-dubbo-nacos</artifactId>
+            <version>${xiushang.version}</version>
+        </dependency>
+
+
+        <!-- redis -->
+        <dependency>
+            <groupId>com.github.shijingsh</groupId>
+            <artifactId>common-redis</artifactId>
+            <version>${xiushang.version}</version>
+        </dependency>
+
     </dependencies>
 
     <!--配置环境的profile-->
