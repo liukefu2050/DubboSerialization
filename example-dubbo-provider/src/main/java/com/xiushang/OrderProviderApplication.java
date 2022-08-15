@@ -12,8 +12,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.Environment;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import java.net.InetAddress;
-
 
 @SpringBootApplication(exclude= DataSourceAutoConfiguration.class)
 @Slf4j
