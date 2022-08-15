@@ -22,16 +22,17 @@
         <!--dubbo依赖-->
         <dependency>
             <groupId>com.github.shijingsh</groupId>
-            <artifactId>common-dubbo</artifactId>
+            <artifactId>common-dubbo-nacos</artifactId>
             <version>${xiushang.version}</version>
         </dependency>
 
-        <!-- 基础服务 -->
+        <!-- common-web 公共接口 -->
         <dependency>
             <groupId>com.github.shijingsh</groupId>
-            <artifactId>xs-service</artifactId>
+            <artifactId>common-web</artifactId>
             <version>${xiushang.version}</version>
         </dependency>
+
         <dependency>
             <groupId>com.xiushang</groupId>
             <artifactId>example-dubbo-provider</artifactId>

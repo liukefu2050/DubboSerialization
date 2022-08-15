@@ -1,23 +1,68 @@
+# 端口
 server:
-  # 服务端口
-  port: 8081
+  port: 8092
+  servlet:
+    register-default-servlet: true
+
 spring:
-  application:
-    name: order-provider
-# dubbo 相关配置(dubbo 的配置不再以 Spring 开头)
-dubbo:
-  application:
-    # 应用名称
-    name: order-provider
-    qosEnable: false
-  scan:
-    # 接口实现者（服务实现）包
-    base-packages: com.xiushang.admin.service
-  # 注册中心信息
-  registry:
-    address: nacos://121.37.171.85:8848
-  protocol:
-    # 协议名称
-    name: dubbo
-    # 协议端口
-    port: -1
+  profiles:
+    active: @env.id@
+  mvc:
+    throw-exception-if-no-handler-found: true
+  web:
+    resources:
+      add-mappings: false
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  # 文件大小限制
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update # Hibernate ddl auto (create, create-drop, validate, update)
+  # 配置session共享
+  session:
+    store-type: redis
+    timeout: 3600000 #半小时过期 60*60*1000
+  # 关闭spring data 的redis仓库
+  data:
+    redis:
+      repositories:
+        enabled: false
+
+knife4j:
+  enable: false
+
+#oauth path
+oauth:
+  client: #管理员客户端前缀
+    prex: xiushang
+  path:
+    url: /api/
+
+jwt:
+  ignored:
+    urls: #安全路径白名单
+      - /
+      - /doc.html
+      - /swagger-resources/**
+      - /v2/api-docs
+      - /v2/api-docs-ext
+      - /webjars/**
+      #- /druid/**
+      - /favicon.ico
+      - /favicon.png
+      - /captcha.jpg
+      - /login
+      - /logout
+      - /captcha
+      - /authentication/**
+      - /oauthLogin
+      #- static
+      - /**/test/**
