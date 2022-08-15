@@ -12,6 +12,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>example-dubbo-consumer</module>
+        <module>example-dubbo-api</module>
         <module>example-dubbo-provider</module>
     </modules>
     <groupId>com.xiushang</groupId>

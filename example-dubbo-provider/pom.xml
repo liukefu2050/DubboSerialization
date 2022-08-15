@@ -15,20 +15,6 @@
 
     <dependencies>
 
-        <!-- mapstruct -->
-        <dependency>
-            <groupId>com.github.shijingsh</groupId>
-            <artifactId>common-mapstruct</artifactId>
-            <version>${xiushang.version}</version>
-        </dependency>
-        <!-- core -->
-        <dependency>
-            <groupId>com.github.shijingsh</groupId>
-            <artifactId>common-core</artifactId>
-            <version>${xiushang.version}</version>
-            <scope>compile</scope>
-        </dependency>
-
         <dependency>
             <groupId>com.github.shijingsh</groupId>
             <artifactId>xs-service</artifactId>
