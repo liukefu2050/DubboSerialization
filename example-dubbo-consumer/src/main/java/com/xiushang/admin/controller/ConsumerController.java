@@ -1,8 +1,7 @@
 package com.xiushang.admin.controller;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.xiushang.dubbo.service.OrderDubboService;
+import com.xiushang.admin.service.OrderPayDubboService;
+import com.xiushang.framework.entity.vo.PageTableVO;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,15 +9,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController()
-@RequestMapping("/test")
+@RequestMapping("/user")
 public class ConsumerController {
     @DubboReference
-    OrderDubboService orderDubboService;
+    OrderPayDubboService orderPayDubboService;
 
-    @GetMapping("getOrder")
-    public String getOrder() {
-        JSONObject object = orderDubboService.getHelloWord();
+    @GetMapping("list")
+    public PageTableVO getList() {
 
-        return JSON.toJSONString(object);
+        PageTableVO object = orderPayDubboService.getList();
+
+        return object;
     }
+
+
 }

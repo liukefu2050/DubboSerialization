@@ -25,7 +25,12 @@
             <artifactId>common-dubbo</artifactId>
             <version>${xiushang.version}</version>
         </dependency>
-
+        <!-- 基础服务 -->
+        <dependency>
+            <groupId>com.github.shijingsh</groupId>
+            <artifactId>xs-service</artifactId>
+            <version>${xiushang.version}</version>
+        </dependency>
         <!--引入lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>

@@ -1,8 +1,8 @@
 package com.xiushang.admin.service;
 
 
-import com.alibaba.fastjson.JSONObject;
+import com.xiushang.framework.entity.vo.PageTableVO;
 
 public interface OrderPayDubboService {
-    JSONObject toPay();
+    PageTableVO getList();
 }

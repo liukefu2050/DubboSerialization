@@ -3,9 +3,11 @@ server:
 spring:
   application:
     name: order-consumer
-# dubbo 相关配置
-dubbo:
-  application:
-    name: order-consumer
+    qosEnable: false
   registry:
-    address: zookeeper://192.168.29.12:2181
+    address: nacos://121.37.171.85:8848
+  protocol:
+    # 协议名称
+    name: dubbo
+    # 协议端口
+    port: -1

@@ -1,28 +1,30 @@
 package com.xiushang.admin.service.impl;
 
 
-import com.alibaba.fastjson.JSONObject;
 import com.xiushang.admin.service.OrderPayDubboService;
-import com.xiushang.framework.utils.UserHolder;
-import com.xiushang.security.SecurityUser;
+import com.xiushang.common.user.vo.UserSearchVo;
+import com.xiushang.common.utils.BaseServiceImpl;
+import com.xiushang.common.utils.LazyLoadUtil;
+import com.xiushang.entity.UserEntity;
+import com.xiushang.framework.entity.vo.PageTableVO;
 import org.apache.dubbo.config.annotation.DubboService;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 
 
 @DubboService(filter = "userFilter",retries = 0)
-public class OrderPayDubboSericeImpl implements OrderPayDubboService, Serializable {
+public class OrderPayDubboSericeImpl extends BaseServiceImpl<UserEntity> implements OrderPayDubboService, Serializable {
 
-    @Override
-    public JSONObject toPay() {
-        JSONObject object = new JSONObject();
-        object.put("code",0);
-        object.put("msg","to pay");
+    @Transactional(readOnly = true)
+    public PageTableVO getList() {
 
-        SecurityUser user = UserHolder.get();
-        System.out.println("=========toPay=========");
-        System.out.println(user);
+        UserSearchVo searchVo = new UserSearchVo();
+        searchVo.setLoginName("19888122579");
 
-        return object;
+        PageTableVO page = userService.findPageList(searchVo);
+        LazyLoadUtil.fullLoad(page);
+
+        return page;
     }
 }
