@@ -14,7 +14,7 @@ import java.io.Serializable;
 
 
 @DubboService(filter = "userFilter",retries = 0)
-public class OrderPayDubboSericeImpl extends BaseServiceImpl<UserEntity> implements OrderPayDubboService, Serializable {
+public class OrderPayDubboSericeImpl  implements OrderPayDubboService, Serializable {
 
     @Transactional(readOnly = true)
     public PageTableVO getList() {
@@ -22,7 +22,7 @@ public class OrderPayDubboSericeImpl extends BaseServiceImpl<UserEntity> impleme
         UserSearchVo searchVo = new UserSearchVo();
         searchVo.setLoginName("19888122579");
 
-        PageTableVO page = userService.findPageList(searchVo);
+        PageTableVO page = findPageList(searchVo);
         LazyLoadUtil.fullLoad(page);
 
         return page;

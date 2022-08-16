@@ -28,6 +28,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <xiushang.version>1.6.0</xiushang.version>
         <spring.boot.version>2.5.5</spring.boot.version>
+        <dubbo.version>3.0.10</dubbo.version>
     </properties>
 
     <dependencyManagement>
