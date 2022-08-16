@@ -31,9 +31,9 @@ tail -f /data/test/example-dubbo-provider/log/admin.log
 
 ### 登陆
 
-http://192.168.15.153:8091/login
-用户名：user
-密码：看控制台输出
+  http://192.168.15.153:8091/login
+- 用户名：user
+- 密码：看控制台输出
 
 ```
 Using generated security password: d676dabf-9ace-415a-a45e-bf76283fc212
@@ -41,8 +41,8 @@ Using generated security password: d676dabf-9ace-415a-a45e-bf76283fc212
 
 ### 测试
 
-添加数据
-http://192.168.15.153:8091/test/post
+ 添加数据
+ http://192.168.15.153:8091/test/post
 
-查询数据
-http://192.168.15.153:8091/test/list
+ 查询数据
+ http://192.168.15.153:8091/test/list
