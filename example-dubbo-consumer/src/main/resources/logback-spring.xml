@@ -5,8 +5,8 @@
 
     <property name="LOG_LEVEL" value="INFO"/>
     <property name="LOG_PATH" value="log"/>
-    <property name="LOG_FILE" value="xiushang-admin.log"/>
-    <property name="LOG_HISTORY" value="xiushang-admin.%d{yyyy-MM-dd}.log"/>
+    <property name="LOG_FILE" value="admin.log"/>
+    <property name="LOG_HISTORY" value="admin.%d{yyyy-MM-dd}.log"/>
 
     <!--日志输出到控制台-->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
