@@ -8,8 +8,10 @@ import com.xiushang.common.user.vo.UserSearchVo;
 import com.xiushang.common.utils.LazyLoadFilter;
 import com.xiushang.common.utils.LazyLoadUtil;
 import com.xiushang.entity.QUserEntity;
+import com.xiushang.entity.RoleEntity;
 import com.xiushang.entity.UserEntity;
 import com.xiushang.framework.entity.vo.PageTableVO;
+import com.xiushang.jpa.repository.RoleDao;
 import com.xiushang.jpa.repository.UserDao;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,9 @@ import java.util.List;
 public class UserDubboSericeImpl  implements UserDubboService, Serializable {
     @Autowired
     private UserDao userDao;
+
+    @Autowired
+    private RoleDao roleDao;
 
     @Transactional(readOnly = true)
     public PageTableVO getList() {
@@ -64,6 +69,24 @@ public class UserDubboSericeImpl  implements UserDubboService, Serializable {
         images.add("https://profile-avatar.csdnimg.cn/9f172825429145ebada87e523f725279_web_yueqiang.jpg!3");
 
         userEntity.setImages(images);
+
+        userDao.save(userEntity);
+
+        RoleEntity roleEntity = new RoleEntity();
+        roleEntity.setCode("10001");
+        roleEntity.setName("管理员");
+
+        List<String> imagesRole = new ArrayList<>();
+        imagesRole.add("https://profile-avatar.csdnimg.cn/9f172825429145ebada87e523f725279_web_yueqiang.jpg!3");
+        roleEntity.setImages(imagesRole);
+        roleEntity.setCreatedDate(new Date());
+        roleEntity.setUpdatedDate(new Date());
+
+        roleDao.save(roleEntity);
+
+        List<RoleEntity> list = new ArrayList<>();
+        list.add(roleEntity);
+        userEntity.setRoles(list);
 
         userDao.save(userEntity);
 
