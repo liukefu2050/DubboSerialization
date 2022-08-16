@@ -1,9 +1,11 @@
 package com.xiushang.admin.service.impl;
 
 
+import com.alibaba.fastjson.JSON;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.xiushang.admin.service.UserDubboService;
 import com.xiushang.common.user.vo.UserSearchVo;
+import com.xiushang.common.utils.LazyLoadFilter;
 import com.xiushang.common.utils.LazyLoadUtil;
 import com.xiushang.entity.QUserEntity;
 import com.xiushang.entity.UserEntity;
@@ -36,9 +38,12 @@ public class UserDubboSericeImpl  implements UserDubboService, Serializable {
 
         Page<UserEntity> page = userDao.findAll(ex,searchVo.createPageRequest());
 
-        LazyLoadUtil.fullLoad(page);
-
+        //LazyLoadUtil.fullLoad(page);
         PageTableVO vo = new PageTableVO(page, searchVo);
+
+        String string = JSON.toJSONString(vo, new LazyLoadFilter());
+
+        vo =  JSON.parseObject(string,PageTableVO.class);
 
         return vo;
     }
