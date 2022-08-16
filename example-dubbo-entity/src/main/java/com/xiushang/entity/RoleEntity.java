@@ -1,14 +1,13 @@
 package com.xiushang.entity;
 
 import io.swagger.annotations.ApiModelProperty;
-import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="sys_role")
-public class RoleEntity extends BaseEntity implements GrantedAuthority {
+public class RoleEntity extends BaseEntity {
 
     public RoleEntity() {
     }
@@ -41,8 +40,4 @@ public class RoleEntity extends BaseEntity implements GrantedAuthority {
         this.name = name;
     }
 
-    @Override
-    public String getAuthority() {
-        return code;
-    }
 }
