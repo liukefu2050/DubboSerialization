@@ -2,7 +2,7 @@ package com.xiushang.admin.service.impl;
 
 
 import com.querydsl.core.types.dsl.BooleanExpression;
-import com.xiushang.admin.service.OrderPayDubboService;
+import com.xiushang.admin.service.UserDubboService;
 import com.xiushang.common.user.vo.UserSearchVo;
 import com.xiushang.common.utils.LazyLoadUtil;
 import com.xiushang.entity.QUserEntity;
@@ -15,10 +15,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @DubboService(filter = "userFilter",retries = 0)
-public class OrderPayDubboSericeImpl  implements OrderPayDubboService, Serializable {
+public class UserDubboSericeImpl  implements UserDubboService, Serializable {
     @Autowired
     private UserDao userDao;
 
@@ -38,5 +40,22 @@ public class OrderPayDubboSericeImpl  implements OrderPayDubboService, Serializa
         PageTableVO vo = new PageTableVO(page, searchVo);
 
         return vo;
+    }
+
+    @Transactional
+    public void saveUser() {
+
+        UserEntity userEntity = new UserEntity();
+        userEntity.setName("name");
+        userEntity.setLoginName("15921359796");
+        userEntity.setMobile("15921359796");
+
+        List<String> images = new ArrayList<>();
+        images.add("https://profile-avatar.csdnimg.cn/9f172825429145ebada87e523f725279_web_yueqiang.jpg!3");
+
+        userEntity.setImages(images);
+
+        userDao.save(userEntity);
+
     }
 }

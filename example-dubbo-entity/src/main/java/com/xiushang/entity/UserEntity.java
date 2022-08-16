@@ -97,6 +97,13 @@ public class UserEntity extends ExpandEntity {
     private List<RoleEntity> roles = new ArrayList<>();
 
 
+    @ApiModelProperty(notes = "相册")
+    @ElementCollection
+    @CollectionTable(name="rel_images_user", joinColumns=@JoinColumn(name="user_id"))
+    @Column(name="images")
+    private List<String> images = new ArrayList<>();
+
+
     public UserEntity(){}
 
     public UserEntity(String _name, String _password) {
@@ -208,5 +215,13 @@ public class UserEntity extends ExpandEntity {
 
     public void setRoles(List<RoleEntity> roles) {
         this.roles = roles;
+    }
+
+    public List<String> getImages() {
+        return images;
+    }
+
+    public void setImages(List<String> images) {
+        this.images = images;
     }
 }

@@ -1,6 +1,6 @@
 package com.xiushang.admin.controller;
 
-import com.xiushang.admin.service.OrderPayDubboService;
+import com.xiushang.admin.service.UserDubboService;
 import com.xiushang.framework.entity.vo.PageTableVO;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,15 +12,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/test")
 public class ConsumerController {
     @DubboReference(check = false)
-    OrderPayDubboService orderPayDubboService;
+    UserDubboService userDubboService;
 
     @GetMapping("list")
     public PageTableVO getList() {
 
-        PageTableVO object = orderPayDubboService.getList();
+        PageTableVO object = userDubboService.getList();
 
         return object;
     }
 
+    @GetMapping("post")
+    public String post() {
+
+         userDubboService.saveUser();
+
+        return "0";
+    }
 
 }
