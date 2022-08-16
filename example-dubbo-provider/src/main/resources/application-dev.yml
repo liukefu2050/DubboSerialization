@@ -45,9 +45,6 @@ spring:
     timeout: 3000ms # 连接超时时间（毫秒
 
 
-# 文件上传目录
-file:
-  temppath: /data/images
 # dubbo 相关配置
 dubbo:
   application:
@@ -67,6 +64,3 @@ dubbo:
     #serialization: fastjson
     #charset: GBK
 
-#ftp
-ftp:
-  enable: false

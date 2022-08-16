@@ -36,34 +36,3 @@ spring:
       repositories:
         enabled: false
 
-knife4j:
-  enable: false
-
-#oauth path
-oauth:
-  client: #管理员客户端前缀
-    prex: xiushang
-  path:
-    url: /api/
-
-
-secure:
-  ignored:
-    urls: #安全路径白名单
-      - /
-      - /doc.html
-      - /swagger-resources/**
-      - /v2/api-docs
-      - /v2/api-docs-ext
-      - /webjars/**
-      #- /druid/**
-      - /favicon.ico
-      - /favicon.png
-      - /captcha.jpg
-      - /login
-      - /logout
-      - /captcha
-      - /authentication/**
-      - /oauthLogin
-      #- static
-      - /test/**
