@@ -2,10 +2,12 @@
 
 mvn clean install
 
+mvn package -Puat
+
 #数据库脚本
 
-本地创建数据库：mg_xiushang
-导入：mg_xiushang.sql 或 启动provider自动生成
+本地创建数据库：mg_test
+导入：mg_test.sql 或 启动provider自动生成
 
 
 #登陆
