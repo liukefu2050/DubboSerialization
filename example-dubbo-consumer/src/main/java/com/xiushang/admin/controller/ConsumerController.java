@@ -27,6 +27,7 @@ public class ConsumerController {
 
             return string;
         }catch (Exception e){
+            e.printStackTrace();
             return e.getStackTrace().toString();
         }
     }

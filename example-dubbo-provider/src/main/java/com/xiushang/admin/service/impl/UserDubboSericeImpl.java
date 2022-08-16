@@ -43,7 +43,7 @@ public class UserDubboSericeImpl  implements UserDubboService, Serializable {
 
         String string = JSON.toJSONString(vo, new LazyLoadFilter());
 
-        vo =  JSON.parseObject(string,PageTableVO.class);
+        //vo =  JSON.parseObject(string,PageTableVO.class);
 
         return vo;
     }

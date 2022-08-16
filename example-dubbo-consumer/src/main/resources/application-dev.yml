@@ -57,6 +57,6 @@ dubbo:
     # 协议端口
     port: -1
     # 序列化
-    #serialization: fastjson
+    serialization: persistent
     #charset: GBK
 
