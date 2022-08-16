@@ -19,12 +19,13 @@ public class OrderPayDubboSericeImpl  implements OrderPayDubboService, Serializa
     @Transactional(readOnly = true)
     public PageTableVO getList() {
 
-        UserSearchVo searchVo = new UserSearchVo();
+        /*UserSearchVo searchVo = new UserSearchVo();
         searchVo.setLoginName("19888122579");
 
         PageTableVO page = findPageList(searchVo);
         LazyLoadUtil.fullLoad(page);
 
-        return page;
+        return page;*/
+        return null;
     }
 }
