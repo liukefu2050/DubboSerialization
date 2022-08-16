@@ -5,6 +5,7 @@ import com.xiushang.framework.entity.vo.PageTableVO;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -14,6 +15,7 @@ public class ConsumerController {
     @DubboReference(check = false)
     UserDubboService userDubboService;
 
+    @ResponseBody
     @GetMapping("list")
     public PageTableVO getList() {
 
@@ -22,6 +24,7 @@ public class ConsumerController {
         return object;
     }
 
+    @ResponseBody
     @GetMapping("post")
     public String post() {
 

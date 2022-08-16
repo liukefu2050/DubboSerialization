@@ -14,7 +14,7 @@ import java.util.List;
 @Entity
 @Table(name="sys_user")
 @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class UserEntity extends ExpandEntity {
+public class UserEntity extends BaseEntity {
 
     /**账号登录名（手机号码）  涉密数据不返回*/
     @JSONField(serialize = false, deserialize = false)

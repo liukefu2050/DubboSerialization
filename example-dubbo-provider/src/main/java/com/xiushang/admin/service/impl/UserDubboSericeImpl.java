@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -31,7 +32,7 @@ public class UserDubboSericeImpl  implements UserDubboService, Serializable {
 
         QUserEntity entity = QUserEntity.userEntity;
         BooleanExpression ex = entity.id.isNotNull();
-        ex = ex.and(entity.loginName.like("%19888122579%"));
+        ex = ex.and(entity.loginName.like("%15921359796%"));
 
         Page<UserEntity> page = userDao.findAll(ex,searchVo.createPageRequest());
 
@@ -49,6 +50,10 @@ public class UserDubboSericeImpl  implements UserDubboService, Serializable {
         userEntity.setName("name");
         userEntity.setLoginName("15921359796");
         userEntity.setMobile("15921359796");
+
+        userEntity.setLastLoginDate(new Date());
+        userEntity.setCreatedDate(new Date());
+        userEntity.setUpdatedDate(new Date());
 
         List<String> images = new ArrayList<>();
         images.add("https://profile-avatar.csdnimg.cn/9f172825429145ebada87e523f725279_web_yueqiang.jpg!3");
