@@ -33,7 +33,6 @@ public class OrderConsumerApplication extends SpringBootServletInitializer {
     log.info("\n----------------------------------------------------------\n\t" +
             "Application '{}' is running! Access URLs:\n\t" +
             "Login: \thttp://{}:{}/login\n\t" +
-            "Doc: \thttp://{}:{}/doc.html\n" +
             "----------------------------------------------------------",
         env.getProperty("spring.application.name"),
         InetAddress.getLocalHost().getHostAddress(),
