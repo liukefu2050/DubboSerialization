@@ -31,6 +31,7 @@
         <xiushang.version>1.6.0</xiushang.version>
         <spring.boot.version>2.5.5</spring.boot.version>
         <dubbo.version>3.0.10</dubbo.version>
+        <druid.version>1.2.6</druid.version>
     </properties>
 
     <dependencyManagement>

@@ -3,12 +3,10 @@ package com.xiushang.admin.config;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.xiushang.common.json.FastJsonMappingHttpMessageConverter;
-import com.xiushang.config.CustomRequestMappingHandlerMapping;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
-import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Collections;
@@ -21,12 +19,6 @@ import java.util.List;
 @Configuration
 public class WebMvcConfigurer extends WebMvcConfigurationSupport {
 
-    @Override
-    public RequestMappingHandlerMapping createRequestMappingHandlerMapping() {
-        CustomRequestMappingHandlerMapping handlerMapping = new CustomRequestMappingHandlerMapping();
-        handlerMapping.setOrder(0);
-        return new CustomRequestMappingHandlerMapping();
-    }
     /**
      * 使用阿里 FastJson 作为JSON MessageConverter
      */
