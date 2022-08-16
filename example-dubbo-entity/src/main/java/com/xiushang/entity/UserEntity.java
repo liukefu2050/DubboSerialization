@@ -87,7 +87,7 @@ public class UserEntity extends BaseEntity {
     /**
      * 用户角色
      */
-    @ManyToMany(fetch = FetchType.EAGER)
+   /* @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="sys_user_role",
             joinColumns=@JoinColumn(name="user_id"),
             inverseJoinColumns=@JoinColumn(name="role_id")
@@ -95,7 +95,7 @@ public class UserEntity extends BaseEntity {
     @JSONField(serialize = false, deserialize = false)
     @ApiModelProperty(notes = "用户角色",hidden = true)
     private List<RoleEntity> roles = new ArrayList<>();
-
+*/
 
     @ApiModelProperty(notes = "相册")
     @ElementCollection
@@ -209,6 +209,7 @@ public class UserEntity extends BaseEntity {
         this.longitude = longitude;
     }
 
+/*
     public List<RoleEntity> getRoles() {
         return roles;
     }
@@ -216,6 +217,7 @@ public class UserEntity extends BaseEntity {
     public void setRoles(List<RoleEntity> roles) {
         this.roles = roles;
     }
+*/
 
     public List<String> getImages() {
         return images;
