@@ -1,4 +1,4 @@
-###打包及环境
+### 打包及环境
 
 ```
 mvn clean install
@@ -7,13 +7,13 @@ mvn clean install
 ```
 mvn package -Puat
 ```
-###数据库脚本
+### 数据库脚本
 
 本地创建数据库：mg_test
 导入：mg_test.sql 或 启动provider自动生成
 
 
-###部署服务器
+### 部署服务器
 
 ```
 cd /data/test/example-dubbo-consumer
@@ -29,7 +29,7 @@ tail -f /data/test/example-dubbo-consumer/log/admin.log
 tail -f /data/test/example-dubbo-provider/log/admin.log
 ```
 
-###登陆
+### 登陆
 
 http://192.168.15.153:8091/login
 用户名：user
@@ -39,7 +39,7 @@ http://192.168.15.153:8091/login
 Using generated security password: d676dabf-9ace-415a-a45e-bf76283fc212
 ```
 
-###测试
+### 测试
 
 添加数据
 http://192.168.15.153:8091/test/post
