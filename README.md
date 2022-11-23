@@ -9,9 +9,6 @@ mvn package -Puat
 ```
 ### 数据库脚本
 
-本地创建数据库：mg_test
-导入：mg_test.sql 或 启动provider自动生成
-
 
 ### 部署服务器
 
@@ -41,7 +38,7 @@ Using generated security password: d676dabf-9ace-415a-a45e-bf76283fc212
 
 ### 测试
 
- 添加数据
+ 查询数据
  http://192.168.15.153:8091/test/post
 
  查询数据

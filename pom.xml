@@ -17,9 +17,9 @@
         <module>example-dubbo-provider</module>
     </modules>
     <groupId>com.xiushang</groupId>
-    <artifactId>DubboTransactional</artifactId>
+    <artifactId>DubboSerialization</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>DubboTransactional</name>
+    <name>DubboSerialization</name>
     <description>xiushang Project For Spring Boot</description>
 
     <properties>
