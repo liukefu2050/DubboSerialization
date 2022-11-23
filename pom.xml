@@ -13,6 +13,7 @@
     <modules>
         <module>example-dubbo-consumer</module>
         <module>example-dubbo-api</module>
+        <module>example-dubbo-entity</module>
         <module>example-dubbo-nacos</module>
         <module>example-dubbo-provider</module>
     </modules>
