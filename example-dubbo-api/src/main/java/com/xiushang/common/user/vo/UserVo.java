@@ -1,11 +1,10 @@
 package com.xiushang.common.user.vo;
 
-import com.xiushang.framework.entity.vo.BaseSearchPageVo;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
-public class UserSearchVo extends BaseSearchPageVo implements java.io.Serializable {
+public class UserVo  implements java.io.Serializable {
     @ApiModelProperty(notes = "用户名称")
     private  String name;
     @ApiModelProperty(notes = "登录名")

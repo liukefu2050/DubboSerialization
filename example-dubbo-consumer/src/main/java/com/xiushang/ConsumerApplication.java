@@ -24,10 +24,10 @@ import java.net.InetAddress;
 @ServletComponentScan(basePackages = {"com.xiushang.filter"})
 @EnableDubbo
 @EnableTransactionManagement(proxyTargetClass = true)
-public class OrderConsumerApplication extends SpringBootServletInitializer {
+public class ConsumerApplication extends SpringBootServletInitializer {
 
   public static void main(String[] args) throws Exception {
-    ConfigurableApplicationContext application = SpringApplication.run(OrderConsumerApplication.class, args);
+    ConfigurableApplicationContext application = SpringApplication.run(ConsumerApplication.class, args);
 
     Environment env = application.getEnvironment();
     log.info("\n----------------------------------------------------------\n\t" +
@@ -43,7 +43,7 @@ public class OrderConsumerApplication extends SpringBootServletInitializer {
 
   @Override
   protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-    return builder.sources(OrderConsumerApplication.class);
+    return builder.sources(ConsumerApplication.class);
   }
 
 }

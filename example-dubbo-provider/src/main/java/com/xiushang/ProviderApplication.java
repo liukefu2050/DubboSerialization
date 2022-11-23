@@ -17,10 +17,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Slf4j
 @EnableDubbo
 @EnableTransactionManagement(proxyTargetClass = true)
-public class OrderProviderApplication extends SpringBootServletInitializer {
+public class ProviderApplication extends SpringBootServletInitializer {
 
   public static void main(String[] args) throws Exception {
-    ConfigurableApplicationContext application = SpringApplication.run(OrderProviderApplication.class, args);
+    ConfigurableApplicationContext application = SpringApplication.run(ProviderApplication.class, args);
 
     Environment env = application.getEnvironment();
     log.info("\n----------------------------------------------------------\n\t" +
@@ -32,7 +32,7 @@ public class OrderProviderApplication extends SpringBootServletInitializer {
   @Override
   protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
     //无端口方式启动
-    return builder.sources(OrderProviderApplication.class).web(WebApplicationType.NONE);
+    return builder.sources(ProviderApplication.class).web(WebApplicationType.NONE);
   }
 
 }
