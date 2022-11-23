@@ -4,6 +4,7 @@ package com.xiushang.admin.service.impl;
 import com.xiushang.admin.service.UserDubboService;
 import com.xiushang.admin.service.UserService;
 import com.xiushang.common.user.vo.UserVo;
+import com.xiushang.entity.UserEntity;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.DubboService;
 
@@ -19,12 +20,12 @@ public class UserDubboServiceImpl  implements UserDubboService, Serializable {
 
     public List<UserVo> getList() {
 
-        List<UserVo> list = userService.getList();
+        List<UserEntity> list = userService.getList();
         if(list!=null){
             System.out.println(list.size());
         }
 
-        return list;
+        return null;
     }
 
 }
