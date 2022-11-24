@@ -1,9 +1,9 @@
 package com.xiushang.admin.service.impl;
 
 
-import com.xiushang.admin.service.UserDubboService;
-import com.xiushang.admin.service.UserService;
-import com.xiushang.entity.UserEntity;
+import com.xiushang.admin.service.MarketingDubboService;
+import com.xiushang.admin.service.MarketingService;
+import com.xiushang.entity.MarketingClientEntity;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,15 +13,15 @@ import java.util.List;
 
 
 @DubboService(filter = "userFilter",retries = 0)
-public class UserDubboServiceImpl  implements UserDubboService, Serializable {
+public class MarketingDubboServiceImpl  implements MarketingDubboService, Serializable {
 
     @DubboReference(check = false)
-    private UserService userService;
+    private MarketingService marketingService;
 
     @Transactional
-    public List<UserEntity> getList() {
+    public List<MarketingClientEntity> getList() {
 
-        List<UserEntity> list = userService.getList();
+        List<MarketingClientEntity> list = marketingService.getList();
         if(list!=null){
             System.out.println(list.size());
         }

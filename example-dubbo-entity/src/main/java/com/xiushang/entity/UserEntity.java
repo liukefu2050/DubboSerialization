@@ -1,6 +1,7 @@
 package com.xiushang.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.xiushang.framework.model.ShopStatusEnum;
 import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Type;
@@ -15,6 +16,13 @@ import java.util.List;
 @Table(name="sys_user")
 @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class UserEntity extends BaseEntity {
+
+
+    @ManyToOne
+    @JoinColumn(name = "shop_id")
+    @JSONField(serialize = false, deserialize = false)
+    @ApiModelProperty(hidden = true)
+    private ShopEntity belongShop;
 
     /**账号登录名（手机号码）  涉密数据不返回*/
     @JSONField(serialize = false, deserialize = false)
@@ -150,6 +158,14 @@ public class UserEntity extends BaseEntity {
 
     public void setLastLoginClient(String lastLoginClient) {
         this.lastLoginClient = lastLoginClient;
+    }
+
+    public ShopEntity getBelongShop() {
+        return belongShop;
+    }
+
+    public void setBelongShop(ShopEntity belongShop) {
+        this.belongShop = belongShop;
     }
 
     public Date getLastLoginDate() {

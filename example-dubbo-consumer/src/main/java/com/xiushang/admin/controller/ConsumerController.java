@@ -1,11 +1,10 @@
 package com.xiushang.admin.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.xiushang.admin.service.UserDubboService;
-import com.xiushang.admin.service.UserService;
-import com.xiushang.common.user.vo.UserVo;
+import com.xiushang.admin.service.MarketingDubboService;
+import com.xiushang.admin.service.MarketingService;
 import com.xiushang.common.utils.LazyLoadFilter;
-import com.xiushang.entity.UserEntity;
+import com.xiushang.entity.MarketingClientEntity;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,17 +18,17 @@ import java.util.List;
 @RequestMapping("/test")
 public class ConsumerController {
     @DubboReference(check = false)
-    private UserDubboService userDubboService;
+    private MarketingDubboService userDubboService;
 
     @DubboReference(check = false)
-    private UserService userService;
+    private MarketingService userService;
 
     @ResponseBody
     @GetMapping("list1")
     public String getListOne() {
 
         try {
-            List<UserEntity> list = userService.getList();
+            List<MarketingClientEntity> list = userService.getList();
             String string = JSON.toJSONString(list, new LazyLoadFilter());
 
             return string;
@@ -44,7 +43,7 @@ public class ConsumerController {
     public String getList() {
 
         try {
-            List<UserEntity> list = userDubboService.getList();
+            List<MarketingClientEntity> list = userDubboService.getList();
             String string = JSON.toJSONString(list, new LazyLoadFilter());
 
             return string;

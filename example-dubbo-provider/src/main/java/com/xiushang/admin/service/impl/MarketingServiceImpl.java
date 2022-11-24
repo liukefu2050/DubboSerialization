@@ -1,10 +1,15 @@
 package com.xiushang.admin.service.impl;
 
 
-import com.xiushang.admin.service.UserService;
+import com.xiushang.admin.service.MarketingService;
+import com.xiushang.entity.MarketingClientEntity;
 import com.xiushang.entity.RoleEntity;
+import com.xiushang.entity.ShopEntity;
 import com.xiushang.entity.UserEntity;
+import com.xiushang.framework.model.ShopStatusEnum;
+import com.xiushang.jpa.repository.MarketingClientDao;
 import com.xiushang.jpa.repository.RoleDao;
+import com.xiushang.jpa.repository.ShopDao;
 import com.xiushang.jpa.repository.UserDao;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,26 +22,35 @@ import java.util.List;
 
 
 @DubboService(filter = "userFilter",retries = 0)
-public class UserServiceImpl implements UserService, Serializable {
+public class MarketingServiceImpl implements MarketingService, Serializable {
     @Autowired
     private UserDao userDao;
 
     @Autowired
     private RoleDao roleDao;
 
+    @Autowired
+    private MarketingClientDao marketingClientDao;
+    @Autowired
+    private ShopDao shopDao;
     @Transactional
-    public List<UserEntity> getList() {
+    public List<MarketingClientEntity> getList() {
 
         long count = userDao.count();
+        UserEntity userEntity = null;
         if(count==0){
-            saveUser();
+            userEntity = saveUser();
+        }else{
+            List<UserEntity> list = userDao.findByName("name");
+            userEntity = list.get(0);
         }
 
-        return userDao.findByName("name");
+        return marketingClientDao.findByUser(userEntity);
     }
 
 
-    public void saveUser() {
+    public UserEntity saveUser() {
+
 
         UserEntity userEntity = new UserEntity();
         userEntity.setName("name");
@@ -54,6 +68,16 @@ public class UserServiceImpl implements UserService, Serializable {
 
         userDao.save(userEntity);
 
+        ShopEntity shopEntity = new ShopEntity();
+        shopEntity.setOwnerUser(userEntity);
+        shopEntity.setMobile("mobile");
+        shopEntity.setName("name");
+        shopEntity.setCode("code");
+        shopEntity.setContactsName("1");
+        shopEntity.setAccountType(1);
+        shopEntity.setShopStatus(ShopStatusEnum.SHOP_BASE);
+        shopDao.save(shopEntity);
+
         RoleEntity roleEntity = new RoleEntity();
         roleEntity.setCode("10001");
         roleEntity.setName("管理员");
@@ -70,7 +94,7 @@ public class UserServiceImpl implements UserService, Serializable {
         list.add(roleEntity);
         userEntity.setRoles(list);
 
-        userDao.save(userEntity);
+        return userDao.save(userEntity);
 
     }
 
