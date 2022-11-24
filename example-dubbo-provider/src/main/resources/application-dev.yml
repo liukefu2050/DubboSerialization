@@ -50,6 +50,12 @@ dubbo:
   application:
     name: app-provider
     qosEnable: false
+  consumer:
+    timeout: 10000
+    retries: 0
+  provider:
+    timeout: 10000
+    retries: 0
   scan:
     # 接口实现者（服务实现）包
     base-packages: com.xiushang.admin.service

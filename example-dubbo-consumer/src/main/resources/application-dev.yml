@@ -49,6 +49,12 @@ dubbo:
   application:
     name: app-consumer
     qosEnable: false
+  consumer:
+    timeout: 10000
+    retries: 0
+  provider:
+    timeout: 10000
+    retries: 0
   registry:
     address: nacos://121.37.171.85:8848
   protocol:
